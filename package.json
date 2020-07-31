@@ -1,0 +1,30 @@
+{
+  "name": "crud",
+  "version": "1.0.0",
+  "description": "sample node application with mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:local": " eslint --fix **/*.js && nodemon -r dotenv/config index.js",
+    "start:prod": "NODE_ENV=production eslint --fix **/*.js && nodemon index.js"
+  },
+  "author": "Saurabh Mishra",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-unless": "^0.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.26",
+    "morgan": "^1.10.0",
+    "rotating-file-stream": "^2.1.3"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.5.0",
+    "nodemon": "^2.0.4"
+  }
+}
