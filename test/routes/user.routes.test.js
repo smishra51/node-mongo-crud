@@ -3,7 +3,7 @@ import chaiHttp from 'chai-http';
 chai.use(chaiHttp);
 const { expect } = chai;
 import mocha from 'mocha';
-const { describe, it, after } = mocha;
+const { describe, it } = mocha;
 const should = chai.should();
 
 const url = "http://localhost:3000";

@@ -4,7 +4,7 @@
   "description": "sample node application with mongodb",
   "main": "index.js",
   "scripts": {
-    "test": "SET NODE_ENV=test && mocha 'test/**/*.js' --timeout 60000 --exit",
+    "test": "SET NODE_ENV=test && mocha 'test/**/*test.js' --timeout 60000 --exit",
     "start:local": " eslint --fix **/*.js && nodemon -r dotenv/config index.js",
     "start:prod": "SET NODE_ENV=production eslint --fix **/*.js && nodemon index.js"
   },

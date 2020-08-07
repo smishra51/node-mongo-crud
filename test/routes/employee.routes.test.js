@@ -50,28 +50,29 @@ describe('Employee Operations', function () {
                     done();
                 });
         });
-        // it("Create New Employee", function (done) {
-        //     // Send some Form Data
-        //     chai.request(url)
-        //         .post('/employee').set('Authorization', token)
-        //         .send(requBody)
-        //         .end(function (err, res) {
-        //             expect(res.statusCode).to.equal(200);
-        //             should.exist(res.body);
-        //             done();
-        //         });
-        // });
-        // it("Update Employee Employee", function (done) {
-        //     // Send some Form Data
-        //     chai.request(url)
-        //         .post('/employee').set('Authorization', token)
-        //         .send(requBody)
-        //         .end(function (err, res) {
-        //             expect(res.statusCode).to.equal(200);
-        //             should.exist(res.body);
-        //             done();
-        //         });
-        // });
+        it("Create New Employee", function (done) {
+            // Send some Form Data
+            chai.request(url)
+                .post('/employee').set('Authorization', token)
+                .send(requBody)
+                .end(function (err, res) {
+                    expect(res.statusCode).to.equal(200);
+                    should.exist(res.body);
+                    done();
+                });
+        });
+        it("Update Employee Employee", function (done) {
+            // Send some Form Data
+            requBody = requBody['name'] = 'Saurabh';
+            chai.request(url)
+                .post('/employee').set('Authorization', token)
+                .send(requBody)
+                .end(function (err, res) {
+                    expect(res.statusCode).to.equal(200);
+                    should.exist(res.body);
+                    done();
+                });
+        });
         it("SHould delete Employee", function (done) {
             // Send some Form Data
             chai.request(url)

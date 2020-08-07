@@ -2,10 +2,10 @@ import gulp from 'gulp';
 
 import run from 'gulp-run';
 
-gulp.task("test",()=> {
+function test() { 
     console.log("executing test cases");
     return run('npm run test').exec();
-})
+}
 
 function build() { 
     console.log("Packaging deployment file.");
@@ -23,4 +23,4 @@ function moveBuild() {
 
 
 
-export default gulp.series(build,moveBuild);
+export default gulp.series(test,build,moveBuild);
