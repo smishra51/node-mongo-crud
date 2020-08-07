@@ -1,16 +1,18 @@
 import Employee from '../model/employee.model.js';
 class EmployeeController {
 
-    get(req, res) {
-        Employee.find({}).then(data => {
+    async get(req, res) {
+        let data = undefined;
+        try {
+            data = await Employee.find({});
             if (data) {
                 res.json({ status: "success", data: data }).status(200);
             } else {
                 res.json({ status: "success", data: data }).status(203);
             }
-        }).catch(error => {
+        } catch (error) {
             res.json({ status: "error", message: error.message }).status(500);
-        })
+        }
     }
 
     post(req, res) {

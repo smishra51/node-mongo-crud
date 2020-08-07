@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 var mongoDB = process.env.DB_URL;
  
-const options = {
+const options = { 
     useUnifiedTopology: true,
     useNewUrlParser: true ,
     dbName: process.env.DB_NAME

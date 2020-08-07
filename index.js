@@ -9,8 +9,9 @@ import cors from 'cors';
 import unless from 'express-unless';
 import morgan from 'morgan';
 import path from 'path';
-let user = new UserController();
 import rfs from 'rotating-file-stream';
+
+let user = new UserController();
 // Then use it before your routes are set up:
 app.use(cors());
 // logging
@@ -20,10 +21,13 @@ const accessLogStream = rfs.createStream('access.log', {
     path: path.join(__dirname, 'log')
 })
 app.use(morgan('combined', { stream: accessLogStream }))
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 user.authenticateJWT.unless = unless;
-app.use(user.authenticateJWT.unless({ path: ['/register'] }));
+app.use(user.authenticateJWT.unless({ path: ['/register','/login'] }));
+
 app.use('/', employeeRouter);
 app.use('/', userRouter);
 
